@@ -10,10 +10,10 @@ class App extends React.Component {
       items: []
     }
   }
-
+//add url
   componentDidMount() {
     $.ajax({
-      url: '/items', 
+      url: '/patient', 
       success: (data) => {
         this.setState({
           items: data
