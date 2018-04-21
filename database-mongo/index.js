@@ -1,5 +1,5 @@
 
-//include mongoose in our project 
+//include mongoose in our project
 //open a connection to the patient database on our locally running instance of MongoDB.
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/patient');
@@ -33,7 +33,7 @@ var patientSchema = mongoose.Schema({
 
 
 //compiling our schema into a Model(class)
-var Patient = mongoose.model('Patient', itemSchema);
+var Patient = mongoose.model('Patient',patientSchema );
 
 
 var selectAll = function(callback) {
@@ -63,4 +63,3 @@ module.exports=Patient;
 module.exports.selectAll = selectAll;
 module.exports.save = save;
 // module.exports=db;
-
