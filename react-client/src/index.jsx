@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      patients: []
     }
   }
 //add url
@@ -16,7 +16,7 @@ class App extends React.Component {
       url: '/patient', 
       success: (data) => {
         this.setState({
-          items: data
+          patients: data
         })
       },
       error: (err) => {
@@ -27,8 +27,8 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
+      <h1>patient List</h1>
+      <List patients={this.state.items}/>
     </div>)
   }
 }
