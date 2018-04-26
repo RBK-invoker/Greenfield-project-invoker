@@ -82,7 +82,6 @@ const button={
   borderRadius: '10px',
   fontFamily: 'Lobster',
 };
-
 //the page login what inside render
 class SignUp extends React.Component {
   //constructor to undestand state
@@ -160,7 +159,10 @@ class SignUp extends React.Component {
   login(){
     window.location.href= window.location.origin+'/login'
   }
-  //what render -----------------need change style to be nice
+  //for home button
+  home(){
+    window.location.href= window.location.origin+'/'
+  };
   render () {
     return (
       <div>
@@ -184,6 +186,7 @@ class SignUp extends React.Component {
         <button onClick={this.saveUser.bind(this)} style={button}>Sign Up</button>
         <h3 style={header2}>Have an account ? </h3>
         <button onClick={this.login.bind(this)} style={button}>Login</button>
+        <button onClick={this.home.bind(this)} style={button}>Back to Home</button>
       </div>
     )
   }
@@ -191,12 +194,3 @@ class SignUp extends React.Component {
 //export this component to can use
 export default SignUp;
 
-/*
-    // console.log('HERE:',this);
-    // console.log('HERE:',this.props.match.path,this.props.match.url);
-    //console.log('HERE:',this.props.location.pathname);
-    this.props.location.pathname='/login';
-    this.props.match.path='/login';
-    this.props.match.path='/login';
-    this.props.match.url='/login';
-*/

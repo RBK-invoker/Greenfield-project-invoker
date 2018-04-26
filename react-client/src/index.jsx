@@ -115,3 +115,37 @@ withRouter
 <NavLink to='/newpatient' exact strict style={notActive3} activeStyle={Active}>New Patient</NavLink>
 
 */
+/*
+  render() {
+    return (
+      <Router>
+          <Prompt
+            when={!this.state.loggedIn}
+            message={(location)=>{
+               return location.pathname.startsWith('/user') ? 'Are you sure?' : true
+             }}
+          />
+logout
+        <input type="button" value={this.state.loggedIn ? 'log out': 'log in'} onClick={this.loginHandle.bind(this)}/>
+    
+        <Route path="/user/:username" exact strict render={({match})=>(
+          this.state.loggedIn ? ( <User username={match.params.username}/>) : (<Redirect to='/' />)
+        )}/>
+        </div>
+      </Router>
+    );
+  }
+}
+        <button onClick={() => hashHistory.push('/login')} style={button}>redirect Sign Up</button>
+
+*/
+
+/*
+    // console.log('HERE:',this);
+    // console.log('HERE:',this.props.match.path,this.props.match.url);
+    //console.log('HERE:',this.props.location.pathname);
+    this.props.location.pathname='/login';
+    this.props.match.path='/login';
+    this.props.match.path='/login';
+    this.props.match.url='/login';
+*/

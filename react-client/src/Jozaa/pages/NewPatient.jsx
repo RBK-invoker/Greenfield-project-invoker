@@ -91,6 +91,10 @@ class NewPatient extends React.Component {
     this.setState({loggedIn:false });
     window.location.href = window.location.origin+'/logout';
   };
+  //for home button
+  home(){
+    window.location.href= window.location.origin+'/'
+  };
   //when change  ... change the
   //number
   onWrite1 (e) {
@@ -270,8 +274,9 @@ class NewPatient extends React.Component {
             <input value={this.state.description} onChange={this.onWrite12.bind(this)} placeholder="Description" style={input}>
             </input>
           </h3>
-        </div3>
+        </div3>  
         <button onClick={this.sentData.bind(this)} style={button}>Submit</button>
+        <button onClick={this.home.bind(this)} style={button}>Back to Home</button>
       </div>
     )
   }

@@ -142,6 +142,10 @@ class Login extends React.Component {
     //change the path I inside it
     window.location.href = window.location.origin+'/signup';
   };
+  //for home button
+  home(){
+    window.location.href= window.location.origin+'/'
+  };
   render () { 
     return (
       <div>
@@ -157,6 +161,7 @@ class Login extends React.Component {
         <button onClick={this.login.bind(this)} style={button}>Login</button>
         <h3 style={header2}>Dont have an account ? </h3>
         <button onClick={this.signup.bind(this)} style={button}>Sign Up</button>
+        <button onClick={this.home.bind(this)} style={button}>Back to Home</button>
       </div>
     )
   }
@@ -165,29 +170,4 @@ class Login extends React.Component {
 export default Login;
 
 
-
-/*
-  render() {
-    return (
-      <Router>
-          <Prompt
-            when={!this.state.loggedIn}
-            message={(location)=>{
-               return location.pathname.startsWith('/user') ? 'Are you sure?' : true
-             }}
-          />
-logout
-        <input type="button" value={this.state.loggedIn ? 'log out': 'log in'} onClick={this.loginHandle.bind(this)}/>
-    
-        <Route path="/user/:username" exact strict render={({match})=>(
-          this.state.loggedIn ? ( <User username={match.params.username}/>) : (<Redirect to='/' />)
-        )}/>
-        </div>
-      </Router>
-    );
-  }
-}
-        <button onClick={() => hashHistory.push('/login')} style={button}>redirect Sign Up</button>
-
-*/
 
