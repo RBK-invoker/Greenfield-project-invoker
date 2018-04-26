@@ -80,17 +80,9 @@ class NewPatient extends React.Component {
       genetic_Diseases: '',
       allergies: '',
       description: '',
-      loggedIn:false,
+      loggedIn:true,
     };
   }
-   //for logout button
-   logout(){
-    console.log('HERE:',   this);
-    //console.log('HERE:',    window.location.href);
-    //change the path I inside it
-    this.setState({loggedIn:false });
-    window.location.href = window.location.origin+'/logout';
-  };
   //for home button
   home(){
     window.location.href= window.location.origin+'/'
@@ -168,9 +160,8 @@ class NewPatient extends React.Component {
       description: e.target.value,
     });
   };
-  //for sign in button
+  //for sent data 
   sentData() {
-    ////.firstName
     const that=this;
     console.log(`you sent this data:  ${JSON.stringify(this.state)}`);
     //ajax request to sent the data to server then data base
@@ -193,9 +184,7 @@ class NewPatient extends React.Component {
       },
       //when success do this
       success: function (res) {
-        //.firstName
         alert(res);
-        console.log(res);
       },
       //when error do this
       error: function (res){
@@ -212,7 +201,7 @@ class NewPatient extends React.Component {
         <div1 style={main}>
           <h3 className="column" style={number}>
           Number:
-            <input type='number' value={this.state.number} onChange={this.onWrite1.bind(this)} placeholder="Number" style={input}>
+            <input /* disabled="disabled" readonlyid='myNumber' */type='Number' value={this.state.number} placeholder="Number" onChange={this.onWrite1.bind(this)} style={input}>
             </input>
           </h3>
           <h3 style={number}>

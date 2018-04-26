@@ -4,12 +4,8 @@ var mongoose=require('mongoose')
 
 //1.create one patient
 exports.createOne = function (req, res) {
-	//jozaa change it to json to can read
-	console.log(req.body);
 	var pInfo=req.body
-  // here there are error when recive the data (jozaa)
 	var patient=new Patient(pInfo)
-
 	patient.save(function(err,patient){
 		if(err){
 			console.log(err);

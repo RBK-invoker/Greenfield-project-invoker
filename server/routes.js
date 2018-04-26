@@ -14,10 +14,8 @@ router.use(bodyParser.urlencoded({extended : true}))
 
 router.route('/newpatient')
 .get(utils.checkUser,function(req,res){res.sendFile(path.join(__dirname, '../react-client/dist/index.html'));})
-//joza
 router.route('/')
 .get(utils.checkUser,function(req,res){res.sendFile(path.join(__dirname, '../react-client/dist/index.html'));})
-//jozaa
 router.route('/login')
 .get(function(req,res){res.sendFile(path.join(__dirname, '../react-client/dist/index.html'));})
 .post(function(req,res){
