@@ -31,4 +31,4 @@ These instructions will get you a copy of the project up and running on your loc
 * Mohammad Jozaa - Scrum master
 * Belal Faouri - Product Owner
 * Salsabeel Jaafreh - Team member
-* Mohammad AlRifaa - Team member
+* Mohammad AlRifai - Team member
