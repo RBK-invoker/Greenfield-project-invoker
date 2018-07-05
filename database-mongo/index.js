@@ -1,12 +1,8 @@
 
-//include mongoose in our project
 //open a connection to the patient database on our locally running instance of MongoDB.
 var mongoose = require('mongoose');
-
-//mongoose.connect('mongodb://localhost/patient');
 //Add Mlab Database
 mongoose.connect('mongodb://Mohammad:1234@ds161539.mlab.com:61539/medical-records');
-
 //now we need to get notified if we connect successfully or if a connection error occurs:
 var db = mongoose.connection;
 //connection error occurs
@@ -45,16 +41,16 @@ var selectAll = function(callback) {
       callback(null, Patient);
     }
   });
-};
+ };
 
 //functionality to our instances:
-var save=function(PatientInstance){
+var save = function(PatientInstance){
 
-  PatientInstance.save(function(err,patient){
+  PatientInstance.save(function(err, patient){
     if(err){
-      console.log(err)
-    }else{
-      console.log('saved patient!')
+     alert(`error`)
+    } else {
+      alert(`saved patient!`)
     }
   })
 }
