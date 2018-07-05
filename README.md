@@ -1,7 +1,7 @@
-# Greenfield-project-invoker
+
 
 ## Project Title:
-   #Medical Record
+   # Medical Record
 
 ## Description:
   A complete medical history of all patients including past illnesses and various diseases.
@@ -30,7 +30,10 @@
 
 
 ## Credits:
-[Mohammad Jozaa](https://github.com/MohammadJozaa7) - Scrum master
-[Belal Faouri](https://github.com/BelalFaouri) - Product Owner
-[Salsabeel Jaafreh](https://github.com/SalsabeelJaafreh) - Team member
-[Mohammad AlRifai](https://github.com/MohammadAlRifai)  Team member
+*[Mohammad Jozaa](https://github.com/MohammadJozaa7) - Scrum master
+
+*[Belal Faouri](https://github.com/BelalFaouri) - Product Owner
+
+*[Salsabeel Jaafreh](https://github.com/SalsabeelJaafreh) - Team member
+
+*[Mohammad AlRifai](https://github.com/MohammadAlRifai)  Team member
