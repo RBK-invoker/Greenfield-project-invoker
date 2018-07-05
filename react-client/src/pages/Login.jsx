@@ -137,19 +137,19 @@ class Login extends React.Component {
   render () { 
     return (
       <div>
-        <h2 style={header}>Welcome To Medical Record</h2>
-        <h3 style={user}>Usename:
-          <input value={this.state.userName} onChange={this.onWrite3.bind(this)} placeholder="Username" style={input}>
+        <h2 style = {header}>Welcome To Medical Record</h2>
+        <h3 style = {user}>Usename:
+          <input value = {this.state.userName} onChange = {this.onWrite3.bind(this)} placeholder = "Username" style = {input}>
           </input>
         </h3>
-        <h3 style={password}>Password:
-          <input type='password' value={this.state.password} onChange={this.onWrite4.bind(this)} placeholder="Password" style={input}>
+        <h3 style = {password}>Password:
+          <input type ='password' value={this.state.password} onChange = {this.onWrite4.bind(this)}  placeholder= "Password" style= {input}>
           </input>
         </h3>
-        <button onClick={this.login.bind(this)} style={button}>Login</button>
-        <h3 style={header2}>Dont have an account ? </h3>
-        <button onClick={this.signup.bind(this)} style={button}>Sign Up</button>
-        <button onClick={this.home.bind(this)} style={button}>Back to Home</button>
+        <button onClick = {this.login.bind(this)} style = {button}>Login</button>
+        <h3 style = {header2}>Dont have an account ? </h3>
+        <button onClick = {this.signup.bind(this)} style = {button}>Sign Up</button>
+        <button onClick = {this.home.bind(this)} style = {button}>Back to Home</button>
       </div>
     )
   }
