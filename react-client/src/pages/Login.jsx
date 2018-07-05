@@ -1,17 +1,17 @@
-//to work react
+
 import React from 'react';
-//to work in ajax
 import $ from 'jquery';
-//the style for the main header
-const header={
+
+//styling part
+const header = {
   color:'black',
   fontWeight:'bold',
   textAlign:'center',
   fontSize:'40px',
   fontFamily: 'Lobster',
 };
-//the style for the main header
-const header2={
+
+const header2 = {
   color:'#ea3212',
   fontWeight:'bold',
   textAlign:'center',
@@ -20,26 +20,25 @@ const header2={
   marginBottom:'-10px',
   marginTop:'5px',
 };
-//the style for the user
-const user={
+
+const user = {
   color:'#1B5494',
   fontWeight:'bold',
   textAlign:'center',
   fontSize:'20px',
   marginBottom:'-10px',
 };
-//the style for the password
-const password={
+
+const password = {
   color:'#bb280e',
   fontWeight:'bold',
   textAlign:'center',
   fontSize:'20px',
   marginBottom:'-10px',
 };
-//the style for the user and password input
-const input={
+
+const input = {
   padding: '10px 10px 10px 10px',
-  //this three to make it center
   display: 'block',
   marginRight: 'auto',
   marginLeft: 'auto',
@@ -48,10 +47,9 @@ const input={
   border: '2px solid black',
   borderRadius: '15px',
 };
-//the style for the button Login
-const button={
+
+const button = {
   padding:'5px',
-  //this three to make it center
   display: 'block',
   marginRight: 'auto',
   marginLeft: 'auto',
@@ -63,43 +61,39 @@ const button={
   fontSize:'20px',
   fontFamily: 'Lobster',
 };
-//the page login what inside render
+
 class Login extends React.Component {
-  //constructor to undestand state
-  constructor(){
+
+  constructor() {
     super();
     //all the data save before sent in state
-    this.state={
+    this.state = {
       userName: '',
       password: '',
       loggedIn:false,
     };
   }
-  //handle log in
+
   loginHandle ()  {
     this.setState({
       loggedIn:true,
     });
   }
-  //when change  ... change the
-  //username
+
   onWrite3 (e) {
     this.setState({
       userName: e.target.value,
     });
   };
-  //password
+
   onWrite4 (e) {
     this.setState({
       password: e.target.value,
     });
   };
-  //for sign in button
+
   login() {
-    console.log(`you try to login: DR.${this.state.userName}`);
-    //to can use this inside other function
     const that=this;
-    //ajax request to sent the data to server then data base
     $.ajax({
       type: 'POST',
       url: '/login',
@@ -107,44 +101,39 @@ class Login extends React.Component {
         userName: `${this.state.userName}`,
         password: `${this.state.password}`
       },
-      //when success do this
+
       success: function (res) {
-        //if login with new user go to sign up page
-        if (res[res.length-1]==='e'){
-          alert(res);
-          //console.log(res[res.length-1]);          
+        if (res[res.length-1]==='e') {
+          alert(res);        
           window.location.href= window.location.origin+'/signup'
-        //if login with correct go to home page
-        }else if(res[0]==='W'){
+
+        }
+        else if (res[0]==='W') {
           alert(res);
-          //console.log(res[0]);
          that.setState({loggedIn:true });
           window.location.href= window.location.origin+'/'
-        //if the pssword wrong go to login page
-        }else{
+
+        } else {
           alert(res);
-          //console.log(res[res.length-1]); 
           window.location.href= window.location.origin+'/login' 
         }
       },
-      //when error do this
-      error: function (){
+      error: function () {
         alert(`Failed login please try again DR.${that.state.userName}`);
-        console.log(`Failed login please try again DR.${that.state.userName}`);
       },
     }); 
   };
-  //for home button
-  home(){
+
+
+  home() {
     window.location.href= window.location.origin+'/'
   };
-  //try router
-  signup(){
-    console.log('HERE:',   this);
-    //console.log('HERE:',    window.location.href);
-    //change the path I inside it
+
+
+  signup() {
     window.location.href = window.location.origin+'/signup';
   };
+
   render () { 
     return (
       <div>
@@ -165,6 +154,7 @@ class Login extends React.Component {
     )
   }
 }
+
 //export this component to can use
 export default Login;
 
