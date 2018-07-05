@@ -1,9 +1,9 @@
-//to work react
+
 import React from 'react';
-//to work in ajax
 import $ from 'jquery';
-//the style for the main header
-const header1={
+
+//styling part
+const header1 = { 
   color:'black',
   fontWeight:'bold',
   textAlign:'center',
@@ -11,7 +11,7 @@ const header1={
   fontFamily: 'Lobster',
   marginTop:'2px',
 };
-//the style for retrieve one patient
+
 const header3={
   color:'black',
   fontWeight:'bold',
@@ -21,8 +21,8 @@ const header3={
   marginTop:'5px',
   marginLeft: '200px',
 };
-//style for input retrieve one patient
-const input3={
+
+const input3 = {
   padding: '10px 10px 10px 10px',
   marginRight: '-80px',
   marginLeft: '-30px',
@@ -31,8 +31,8 @@ const input3={
   border: '2px solid black',
   borderRadius: '15px',
 };
-//the style for the button retrieve one patient
-const button3={
+
+const button3 = {
   padding:'6px',
   backgroundColor: '#123456',
   color: 'white',
@@ -41,8 +41,8 @@ const button3={
   borderRadius: '15px',
   fontFamily: 'Lobster',
 };
-//style for th / the const thing
-const table={
+
+const table = {
     border: '3px solid black',
     borderCollapse: 'collapse',
     padding: '3px',
@@ -52,8 +52,8 @@ const table={
     color:'black',
     backgroundColor: 'white',
 }
-//style for td / the changed thing
-const table2={
+
+const table2 = {
     border: '3px solid black',
     borderCollapse: 'collapse',
     padding: '3px',
@@ -64,10 +64,9 @@ const table2={
     backgroundColor: 'gray',
 
 }
-//the style for the button logout
-const button1={
+
+const button1 = {
   padding:'5px',
-  //this three to make it center
   display: 'block',
   marginRight: 'auto',
   marginLeft: 'auto',
@@ -80,9 +79,9 @@ const button1={
   fontFamily: 'Lobster',
 };
 //the style for the button create new patient
-const button2={
+const button2 = {
   padding:'5px',
-  //this three to make it center
+
   display: 'block',
   marginRight: 'auto',
   marginLeft: 'auto',
@@ -94,81 +93,69 @@ const button2={
   borderRadius: '10px',
   fontFamily: 'Lobster',
 };
-//the page home what inside render
+
+
 class Home extends React.Component {
-  constructor(){
+  constructor() {
     super();
     //all the data save before sent in state
-    this.state={
+    this.state = {
       loggedIn:true,
       patientNumber:3,
       //the data get from retrieve
       data:{},
     };
   }
-  //when change  ... change the
-  //patient number
+
   onWrite1 (e) {
     this.setState({
       patientNumber: 1*e.target.value,
     });
   };
-  //for logout button
-  logout(){
-    console.log('you try to logoutDR');
+
+  logout() {
     const that=this
-    //ajax request to logout
     $.ajax({
       type: 'GET',
       url: '/logout',
-      //when success do this
       success: function (res) {
         alert(res);
         that.setState({loggedIn:false});
         window.location.href= window.location.origin+'/login'
       },
+
       //when error do this
-      error: function (){
+      error: function () {
         alert('Failed logout please try again DR');
-        console.log('Failed logout please try again DR');
       },
     }); 
   };
+
   //for button create new patient
-  newPatient(){
-    console.log('you try to go to create new patient:');
-    window.location.href=window.location.origin+'/newpatient';
+  newPatient() {
+  window.location.href=window.location.origin+'/newpatient';
   };
   //for retrieve one patient
-  retrieveOne(){
-    console.log('you try to retrieve one patient', typeof this.state.patientNumber);
+  retrieveOne() {
     const that=this
     //ajax request to logout
     $.ajax({
       type: 'GET',
       url: '/patient',
       data:{number:`${that.state.patientNumber}`},
-      //when success do this
       success: function (res) {
-        console.log('Sucess retrieve patient have number: ',res[0].number);
         alert('Sucess retrieve patient have number: '+res[0].number);
         that.setState({data:res});
-        //console.log(that.state.data);
         that.renderData()
       },
-      //when error do this
       error: function (){
         alert('Failed retrieve one patient please try again DR');
-        console.log('Failed retrieve one patient please try again DR');
       },
     }); 
   };
-  //to save data to can use and render
+
   renderData(){
-    //console.log('HERE: ',this.state.data[0]);
-    //i get the data now i neeed to render it
     var data=this.state.data[0]
-    console.log('HERE: ',this.state.data[0]);
     $('.number').html(data.number);
     $('.firstName').html(data.firstName);
     $('.lastName').html(data.lastName);
