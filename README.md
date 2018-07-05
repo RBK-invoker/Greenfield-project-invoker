@@ -9,7 +9,7 @@
 ## Development:
 
   ## Installing Dependencies:
-   ### From inside the repo directory
+   ## From inside the repo directory
      * npm install -g webpack
      * npm install
 
