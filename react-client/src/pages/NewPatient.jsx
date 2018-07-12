@@ -1,62 +1,62 @@
-import React from "react";
+import React from 'react';
 
-import $ from "jquery";
+import $ from 'jquery';
 //styling part
 const main = {
-  width: "400px",
-  height: "150px",
-  display: "-webkit-flex",
-  display: "flex",
-  marginBottom: "-50px",
-  marginLeft: "7%"
+  width: '400px',
+  height: '150px',
+  display: '-webkit-flex',
+  display: 'flex',
+  marginBottom: '-50px',
+  marginLeft: '7%'
 };
 
 const header = {
-  color: "black",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "40px",
-  fontFamily: "Lobster"
+  color: 'black',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '40px',
+  fontFamily: 'Lobster'
 };
 
 const number = {
-  color: "black",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "25px",
-  marginRight: "20px"
+  color: 'black',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '25px',
+  marginRight: '20px'
 };
 
 const number2 = {
-  color: "black",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "25px"
+  color: 'black',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '25px'
 };
 
 const input = {
-  padding: "10px 10px 10px 10px",
-  display: "block",
-  marginRight: "auto",
-  marginLeft: "auto",
-  color: "black",
-  fontSize: "15px",
-  border: "2px solid black",
-  borderRadius: "15px"
+  padding: '10px 10px 10px 10px',
+  display: 'block',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  color: 'black',
+  fontSize: '15px',
+  border: '2px solid black',
+  borderRadius: '15px'
 };
 //the style for the button Sign Up
 const button = {
-  padding: "5px",
-  display: "block",
-  marginRight: "auto",
-  marginLeft: "auto",
-  backgroundColor: "#123456",
-  color: "white",
-  border: "2px solid #123456",
-  marginTop: "20px",
-  fontSize: "20px",
-  borderRadius: "10px",
-  fontFamily: "Lobster"
+  padding: '5px',
+  display: 'block',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  backgroundColor: '#123456',
+  color: 'white',
+  border: '2px solid #123456',
+  marginTop: '20px',
+  fontSize: '20px',
+  borderRadius: '10px',
+  fontFamily: 'Lobster'
 };
 
 class NewPatient extends React.Component {
@@ -65,23 +65,23 @@ class NewPatient extends React.Component {
     //all the data save before sent in state
     this.state = {
       number: 0,
-      firstName: "",
-      lastName: "",
-      gender: "",
-      age: "",
-      phone: "07",
-      conditions: "",
-      past_Diseases: "",
-      currentlly_Medications: "",
-      genetic_Diseases: "",
-      allergies: "",
-      description: "",
+      firstName: '',
+      lastName: '',
+      gender: '',
+      age: '',
+      phone: '07',
+      conditions: '',
+      past_Diseases: '',
+      currentlly_Medications: '',
+      genetic_Diseases: '',
+      allergies: '',
+      description: '',
       loggedIn: true
     };
   }
 
   home() {
-    window.location.href = window.location.origin + "/";
+    window.location.href = window.location.origin + '/';
   }
 
   onWrite1(e) {
@@ -158,8 +158,8 @@ class NewPatient extends React.Component {
 
   sentData() {
     $.ajax({
-      type: "POST",
-      url: "/patient",
+      type: 'POST',
+      url: '/patient',
       data: {
         number: `${this.state.number}`,
         firstName: `${this.state.firstName}`,
@@ -179,14 +179,14 @@ class NewPatient extends React.Component {
         alert(res);
       },
       error: function(res) {
-        alert("Failed sent this data please try agian");
+        alert('Failed sent this data please try agian');
       }
     });
   }
 
   render() {
     return (
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: 'center' }}>
         <h2 style={header}>
           Welcome To Medical Record <br /> Please Insert Your Information
         </h2>
