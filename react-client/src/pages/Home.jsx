@@ -1,95 +1,95 @@
-import React from "react";
-import $ from "jquery";
+import React from 'react';
+import $ from 'jquery';
 
 //styling part
 const header1 = {
-  color: "black",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "50px",
-  fontFamily: "Lobster",
-  marginTop: "2px"
+  color: 'black',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '50px',
+  fontFamily: 'Lobster',
+  marginTop: '2px'
 };
 
 const header3 = {
-  color: "black",
-  fontWeight: "bold",
-  textAlign: "centezr",
-  fontSize: "25px",
-  fontFamily: "Lobster",
-  marginTop: "5px",
-  marginLeft: "200px"
+  color: 'black',
+  fontWeight: 'bold',
+  textAlign: 'centezr',
+  fontSize: '25px',
+  fontFamily: 'Lobster',
+  marginTop: '5px',
+  marginLeft: '200px'
 };
 
 const input3 = {
-  padding: "10px 10px 10px 10px",
-  marginRight: "-80px",
-  marginLeft: "-30px",
-  color: "black",
-  fontSize: "15px",
-  border: "2px solid black",
-  borderRadius: "15px"
+  padding: '10px 10px 10px 10px',
+  marginRight: '-80px',
+  marginLeft: '-30px',
+  color: 'black',
+  fontSize: '15px',
+  border: '2px solid black',
+  borderRadius: '15px'
 };
 
 const button3 = {
-  padding: "6px",
-  backgroundColor: "#123456",
-  color: "white",
-  border: "2px solid black",
-  fontSize: "20px",
-  borderRadius: "15px",
-  fontFamily: "Lobster"
+  padding: '6px',
+  backgroundColor: '#123456',
+  color: 'white',
+  border: '2px solid black',
+  fontSize: '20px',
+  borderRadius: '15px',
+  fontFamily: 'Lobster'
 };
 
 const table = {
-  border: "3px solid black",
-  borderCollapse: "collapse",
-  padding: "3px",
-  textAlign: "center",
-  fontSize: "25px",
-  fontWeight: "bold",
-  color: "black",
-  backgroundColor: "white"
+  border: '3px solid black',
+  borderCollapse: 'collapse',
+  padding: '3px',
+  textAlign: 'center',
+  fontSize: '25px',
+  fontWeight: 'bold',
+  color: 'black',
+  backgroundColor: 'white'
 };
 
 const table2 = {
-  border: "3px solid black",
-  borderCollapse: "collapse",
-  padding: "3px",
-  textAlign: "center",
-  fontSize: "25px",
+  border: '3px solid black',
+  borderCollapse: 'collapse',
+  padding: '3px',
+  textAlign: 'center',
+  fontSize: '25px',
   //fontWeight:'bold',
-  color: "white",
-  backgroundColor: "gray"
+  color: 'white',
+  backgroundColor: 'gray'
 };
 
 const button1 = {
-  padding: "5px",
-  display: "block",
-  marginRight: "auto",
-  marginLeft: "auto",
-  backgroundColor: "#bb280e",
-  color: "white",
-  border: "2px solid #bb280e",
-  marginTop: "5px",
-  fontSize: "20px",
-  borderRadius: "10px",
-  fontFamily: "Lobster"
+  padding: '5px',
+  display: 'block',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  backgroundColor: '#bb280e',
+  color: 'white',
+  border: '2px solid #bb280e',
+  marginTop: '5px',
+  fontSize: '20px',
+  borderRadius: '10px',
+  fontFamily: 'Lobster'
 };
 //the style for the button create new patient
 const button2 = {
-  padding: "5px",
+  padding: '5px',
 
-  display: "block",
-  marginRight: "auto",
-  marginLeft: "auto",
-  backgroundColor: "#123456",
-  color: "white",
-  border: "2px solid #123456",
-  marginTop: "0px",
-  fontSize: "20px",
-  borderRadius: "10px",
-  fontFamily: "Lobster"
+  display: 'block',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  backgroundColor: '#123456',
+  color: 'white',
+  border: '2px solid #123456',
+  marginTop: '0px',
+  fontSize: '20px',
+  borderRadius: '10px',
+  fontFamily: 'Lobster'
 };
 
 class Home extends React.Component {
@@ -113,58 +113,58 @@ class Home extends React.Component {
   logout() {
     const that = this;
     $.ajax({
-      type: "GET",
-      url: "/logout",
+      type: 'GET',
+      url: '/logout',
       success: function(res) {
         alert(res);
         that.setState({ loggedIn: false });
-        window.location.href = window.location.origin + "/login";
+        window.location.href = window.location.origin + '/login';
       },
 
       //when error do this
       error: function() {
-        alert("Failed logout please try again DR");
+        alert('Failed logout please try again DR');
       }
     });
   }
 
   //for button create new patient
   newPatient() {
-    window.location.href = window.location.origin + "/newpatient";
+    window.location.href = window.location.origin + '/newpatient';
   }
   //for retrieve one patient
   retrieveOne() {
     const that = this;
     //ajax request to logout
     $.ajax({
-      type: "GET",
-      url: "/patient",
+      type: 'GET',
+      url: '/patient',
       data: { number: `${that.state.patientNumber}` },
       success: function(res) {
-        alert("Sucess retrieve patient have number: " + res[0].number);
+        alert('Sucess retrieve patient have number: ' + res[0].number);
         that.setState({ data: res });
         that.renderData();
       },
       error: function() {
-        alert("Failed retrieve one patient please try again DR");
+        alert('Failed retrieve one patient please try again DR');
       }
     });
   }
 
   renderData() {
     var data = this.state.data[0];
-    $(".number").html(data.number);
-    $(".firstName").html(data.firstName);
-    $(".lastName").html(data.lastName);
-    $(".gender").html(data.gender);
-    $(".age").html(data.age);
-    $(".phone").html(data.phone);
-    $(".conditions").html(data.conditions);
-    $(".pastDiseases").html(data.past_Diseases);
-    $(".currMedications").html(data.currentlly_Medications);
-    $(".geneticDisease").html(data.genetic_Diseases);
-    $(".allergies").html(data.allergies);
-    $(".description").html(data.description);
+    $('.number').html(data.number);
+    $('.firstName').html(data.firstName);
+    $('.lastName').html(data.lastName);
+    $('.gender').html(data.gender);
+    $('.age').html(data.age);
+    $('.phone').html(data.phone);
+    $('.conditions').html(data.conditions);
+    $('.pastDiseases').html(data.past_Diseases);
+    $('.currMedications').html(data.currentlly_Medications);
+    $('.geneticDisease').html(data.genetic_Diseases);
+    $('.allergies').html(data.allergies);
+    $('.description').html(data.description);
   }
   render() {
     return (
@@ -172,7 +172,7 @@ class Home extends React.Component {
         <h2 style={header1}>Retrieve data for patient by his number</h2>
         <div2
           className="row"
-          style={{ marginLeft: "auto", marginRight: "auto" }}
+          style={{ marginLeft: 'auto', marginRight: 'auto' }}
         >
           <h3 className="col-xs-4 col-xs-offset-1" style={header3}>
             Get all info for this patient:
@@ -196,10 +196,10 @@ class Home extends React.Component {
         <div3>
           <table
             style={{
-              width: "80%",
-              marginLeft: "auto",
-              marginRight: "auto",
-              marginTop: "20px"
+              width: '80%',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              marginTop: '20px'
             }}
           >
             <tr>
