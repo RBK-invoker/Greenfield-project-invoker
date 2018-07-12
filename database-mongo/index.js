@@ -1,18 +1,18 @@
 //open a connection to the patient database on our locally running instance of MongoDB.
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
 
 //Add Mlab Database
 mongoose.connect(
-  "mongodb://Mohammad:1234@ds161539.mlab.com:61539/medical-records"
+  'mongodb://Mohammad:1234@ds161539.mlab.com:61539/medical-records'
 );
 
 //now we need to get notified if we connect successfully or if a connection error occurs:
 var db = mongoose.connection;
-db.on("error", function() {
-  console.log("mongoose connection error");
+db.on('error', function() {
+  console.log('mongoose connection error');
 });
-db.once("open", function() {
-  console.log("mongoose connected successfully");
+db.once('open', function() {
+  console.log('mongoose connected successfully');
 });
 
 //create our schema
@@ -31,7 +31,7 @@ var patientSchema = mongoose.Schema({
   description: String
 });
 
-var Patient = mongoose.model("Patient", patientSchema);
+var Patient = mongoose.model('Patient', patientSchema);
 
 var selectAll = function(callback) {
   Patient.find({}, function(err, items) {
@@ -61,7 +61,7 @@ var userSchema = mongoose.Schema({
   lastName: String
 });
 
-var User = mongoose.model("User", userSchema);
+var User = mongoose.model('User', userSchema);
 
 module.exports = User;
 module.exports = Patient;

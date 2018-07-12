@@ -1,11 +1,18 @@
 module.exports = {
     "env": {
-        "browser": true
+        "browser": true,
+        "commonjs": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 5
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018
     },
+    "plugins": [
+        "react"
+    ],
     "rules": {
         "indent": [
             "error",
@@ -21,7 +28,7 @@ module.exports = {
         ],
         "semi": [
             "error",
-            "always"
+            "never"
         ]
     }
 };
