@@ -1,6 +1,6 @@
 //helping functions to check if the user is logged in.
-var session = require("express-session");
-var path = require("path");
+var session = require('express-session');
+var path = require('path');
 
 //this function will check for a user key in the session object
 //returns true if it exists,false if not.
@@ -16,13 +16,13 @@ exports.isLoggedIn = function(req, res) {
 //routes,if the user is logged in it will handle his request.
 exports.checkUser = function(req, res, next) {
   if (!exports.isLoggedIn(req)) {
-    console.log("You Are not logged in");
+    console.log('You Are not logged in');
     res.send(
       '<script>alert("Sorry DR you are not logged in please login first to can access this page")</script>' +
         '<script>window.location.href= window.location.origin+"/login" </script>'
     );
   } else {
-    console.log("next");
+    console.log('next');
     next();
   }
 };
