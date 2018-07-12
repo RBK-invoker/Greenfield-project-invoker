@@ -1,168 +1,165 @@
+import React from "react";
 
-import React from 'react';
-
-import $ from 'jquery';
+import $ from "jquery";
 //styling part
 const main = {
-  width: '400px',
-  height: '150px',
-  display: '-webkit-flex',
-  display: 'flex',
-  marginBottom:'-50px',
-  marginLeft:'7%',
-}
+  width: "400px",
+  height: "150px",
+  display: "-webkit-flex",
+  display: "flex",
+  marginBottom: "-50px",
+  marginLeft: "7%"
+};
 
 const header = {
-  color:'black',
-  fontWeight:'bold',
-  textAlign:'center',
-  fontSize:'40px',
-  fontFamily: 'Lobster',
+  color: "black",
+  fontWeight: "bold",
+  textAlign: "center",
+  fontSize: "40px",
+  fontFamily: "Lobster"
 };
 
 const number = {
-  color:'black',
-  fontWeight:'bold',
-  textAlign:'center',
-  fontSize:'25px',
-  marginRight:'20px',
+  color: "black",
+  fontWeight: "bold",
+  textAlign: "center",
+  fontSize: "25px",
+  marginRight: "20px"
 };
 
 const number2 = {
-  color:'black',
-  fontWeight:'bold',
-  textAlign:'center',
-  fontSize:'25px',
+  color: "black",
+  fontWeight: "bold",
+  textAlign: "center",
+  fontSize: "25px"
 };
 
 const input = {
-  padding: '10px 10px 10px 10px',
-  display: 'block',
-  marginRight: 'auto',
-  marginLeft: 'auto',
-  color:'black',
-  fontSize:'15px',
-  border: '2px solid black',
-  borderRadius: '15px',
+  padding: "10px 10px 10px 10px",
+  display: "block",
+  marginRight: "auto",
+  marginLeft: "auto",
+  color: "black",
+  fontSize: "15px",
+  border: "2px solid black",
+  borderRadius: "15px"
 };
 //the style for the button Sign Up
 const button = {
-  padding:'5px',
-  display: 'block',
-  marginRight: 'auto',
-  marginLeft: 'auto',
-  backgroundColor: '#123456',
-  color: 'white',
-  border: '2px solid #123456',
-  marginTop:'20px',
-  fontSize:'20px',
-  borderRadius: '10px',
-  fontFamily: 'Lobster',
+  padding: "5px",
+  display: "block",
+  marginRight: "auto",
+  marginLeft: "auto",
+  backgroundColor: "#123456",
+  color: "white",
+  border: "2px solid #123456",
+  marginTop: "20px",
+  fontSize: "20px",
+  borderRadius: "10px",
+  fontFamily: "Lobster"
 };
 
-
 class NewPatient extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     //all the data save before sent in state
-    this.state = { 
+    this.state = {
       number: 0,
-      firstName:'',
-      lastName: '',
-      gender: '',
-      age: '',
-      phone: '07',
-      conditions: '',
-      past_Diseases: '',
-      currentlly_Medications: '',
-      genetic_Diseases: '',
-      allergies: '',
-      description: '',
-      loggedIn:true,
+      firstName: "",
+      lastName: "",
+      gender: "",
+      age: "",
+      phone: "07",
+      conditions: "",
+      past_Diseases: "",
+      currentlly_Medications: "",
+      genetic_Diseases: "",
+      allergies: "",
+      description: "",
+      loggedIn: true
     };
   }
 
-  home(){
-    window.location.href= window.location.origin+'/'
-  };
+  home() {
+    window.location.href = window.location.origin + "/";
+  }
 
-  onWrite1 (e) {
+  onWrite1(e) {
     this.setState({
-      number: 1*e.target.value,
+      number: 1 * e.target.value
     });
-  };
+  }
 
-
-  onWrite2 (e) {
+  onWrite2(e) {
     this.setState({
-      firstName: e.target.value,
+      firstName: e.target.value
     });
-  };
+  }
 
-  onWrite3 (e) {
+  onWrite3(e) {
     this.setState({
-      lastName: e.target.value,
+      lastName: e.target.value
     });
-  };
+  }
 
-  onWrite4 (e) {
+  onWrite4(e) {
     this.setState({
-      gender: e.target.value,
+      gender: e.target.value
     });
-  };
+  }
 
-  onWrite5 (e) {
+  onWrite5(e) {
     this.setState({
-      age: e.target.value,
+      age: e.target.value
     });
-  };
+  }
 
-  onWrite6 (e) {
+  onWrite6(e) {
     this.setState({
-      phone: e.target.value,
+      phone: e.target.value
     });
-  };
+  }
 
-  onWrite7 (e) {
+  onWrite7(e) {
     this.setState({
-      conditions: e.target.value,
+      conditions: e.target.value
     });
-  };
+  }
 
-  onWrite8 (e) {
+  onWrite8(e) {
     this.setState({
-      past_Diseases: e.target.value,
+      past_Diseases: e.target.value
     });
-  };
+  }
 
-  onWrite9 (e) {
+  onWrite9(e) {
     this.setState({
-      currentlly_Medications: e.target.value,
+      currentlly_Medications: e.target.value
     });
-  };
+  }
 
-  onWrite10 (e) {
+  onWrite10(e) {
     this.setState({
-      genetic_Diseases: e.target.value,
+      genetic_Diseases: e.target.value
     });
-  };
+  }
 
-  onWrite11 (e) {
+  onWrite11(e) {
     this.setState({
-      allergies: e.target.value,
+      allergies: e.target.value
     });
-  };
+  }
 
-  onWrite12 (e) {
+  onWrite12(e) {
     this.setState({
-      description: e.target.value,
+      description: e.target.value
     });
-  };
+  }
 
   sentData() {
     $.ajax({
-      type: 'POST',
-      url: '/patient',
+      type: "POST",
+      url: "/patient",
       data: {
         number: `${this.state.number}`,
         firstName: `${this.state.firstName}`,
@@ -175,94 +172,151 @@ class NewPatient extends React.Component {
         currentlly_Medications: `${this.state.currentlly_Medications}`,
         genetic_Diseases: `${this.state.genetic_Diseases}`,
         allergies: `${this.state.allergies}`,
-        description: `${this.state.description}`,
+        description: `${this.state.description}`
       },
       //when success do this
-      success: function (res) {
+      success: function(res) {
         alert(res);
       },
-      error: function (res){
-        alert('Failed sent this data please try agian' );
-      },
+      error: function(res) {
+        alert("Failed sent this data please try agian");
+      }
     });
-  };
+  }
 
-  render () {
+  render() {
     return (
-      <div style = {{textAlign: 'center'}}>
-        <h2 style = {header}>Welcome To Medical Record <br/> Please Insert Your Information</h2>
-        <div1 style = {main}>
-          <h3 className = "column" style = {number}>
-          Number:
-            <input type = "number" value = {this.state.number} onChange = {this.onWrite1.bind(this)} placeholder = "Number" style = {input}>
-            </input>
-          </h3>
-          <h3 style = {number}>
-          First name:
-            <input value = {this.state.firstName} onChange = {this.onWrite2.bind(this)} placeholder = "First name" style = {input}>
-            </input>
-          </h3>
-          <h3 style =  {number}>
-          Last name:
-            <input value = {this.state.lastName} onChange = {this.onWrite3.bind(this)} placeholder = "Last name" style = {input}>
-            </input>
-          </h3>
-          <h3 style = {number2}>
-          Gender:
-            <input value = {this.state.gender} onChange = {this.onWrite4.bind(this)} placeholder = "Gender" style = {input}>
-            </input>
-          </h3>
-        </div1>
-        <div2 style = {main}>
-          <h3 style = {number}>
-          Age:
-            <input type = "number" value = {this.state.age} onChange = {this.onWrite5.bind(this)} placeholder = "Age" style = {input}>
-            </input>
-          </h3>
-          <h3 style = {number}>
-          Phone:
-            <input type = "number" value = {this.state.phone} onChange = {this.onWrite6.bind(this)} placeholder = "Phone" style = {input}>
-            </input>
-          </h3>
-          <h3 style = {number}>
-          Conditions:
-            <input value = {this.state.conditions} onChange = {this.onWrite7.bind(this)} placeholder = "Conditions" style = {input}>
-            </input>
-          </h3>
-          <h3 style={number2}>
-          Past Diseases:
-            <input value={this.state.past_Diseases} onChange={this.onWrite8.bind(this)} placeholder="Past Diseases" style={input}>
-            </input>
-          </h3>
-        </div2>
-        <div3 style = {main}>
-          <h3 style = {number}>
-          Curr. Medications:
-            <input value = {this.state.currentlly_Medications} onChange = {this.onWrite9.bind(this)} placeholder = "Currentlly Medications" style = {input}>
-            </input>
-          </h3>
-          <h3 style = {number}>
-          Genetic Diseases:
-            <input value = {this.state.genetic_Diseases} onChange = {this.onWrite10.bind(this)} placeholder = "Genetic Diseases" style = {input}>
-            </input>
+      <div style={{ textAlign: "center" }}>
+        <h2 style={header}>
+          Welcome To Medical Record <br /> Please Insert Your Information
+        </h2>
+        <div1 style={main}>
+          <h3 className="column" style={number}>
+            Number:
+            <input
+              type="number"
+              value={this.state.number}
+              onChange={this.onWrite1.bind(this)}
+              placeholder="Number"
+              style={input}
+            />
           </h3>
           <h3 style={number}>
-          Allergies:
-            <input value = {this.state.allergies} onChange = {this.onWrite11.bind(this)} placeholder = "Allergies" style = {input}>
-            </input>
+            First name:
+            <input
+              value={this.state.firstName}
+              onChange={this.onWrite2.bind(this)}
+              placeholder="First name"
+              style={input}
+            />
+          </h3>
+          <h3 style={number}>
+            Last name:
+            <input
+              value={this.state.lastName}
+              onChange={this.onWrite3.bind(this)}
+              placeholder="Last name"
+              style={input}
+            />
           </h3>
           <h3 style={number2}>
-          Description: 
-            <input value = {this.state.description} onChange = {this.onWrite12.bind(this)} placeholder = "Description" style = {input}>
-            </input>
+            Gender:
+            <input
+              value={this.state.gender}
+              onChange={this.onWrite4.bind(this)}
+              placeholder="Gender"
+              style={input}
+            />
+          </h3>
+        </div1>
+        <div2 style={main}>
+          <h3 style={number}>
+            Age:
+            <input
+              type="number"
+              value={this.state.age}
+              onChange={this.onWrite5.bind(this)}
+              placeholder="Age"
+              style={input}
+            />
+          </h3>
+          <h3 style={number}>
+            Phone:
+            <input
+              type="number"
+              value={this.state.phone}
+              onChange={this.onWrite6.bind(this)}
+              placeholder="Phone"
+              style={input}
+            />
+          </h3>
+          <h3 style={number}>
+            Conditions:
+            <input
+              value={this.state.conditions}
+              onChange={this.onWrite7.bind(this)}
+              placeholder="Conditions"
+              style={input}
+            />
+          </h3>
+          <h3 style={number2}>
+            Past Diseases:
+            <input
+              value={this.state.past_Diseases}
+              onChange={this.onWrite8.bind(this)}
+              placeholder="Past Diseases"
+              style={input}
+            />
+          </h3>
+        </div2>
+        <div3 style={main}>
+          <h3 style={number}>
+            Curr. Medications:
+            <input
+              value={this.state.currentlly_Medications}
+              onChange={this.onWrite9.bind(this)}
+              placeholder="Currentlly Medications"
+              style={input}
+            />
+          </h3>
+          <h3 style={number}>
+            Genetic Diseases:
+            <input
+              value={this.state.genetic_Diseases}
+              onChange={this.onWrite10.bind(this)}
+              placeholder="Genetic Diseases"
+              style={input}
+            />
+          </h3>
+          <h3 style={number}>
+            Allergies:
+            <input
+              value={this.state.allergies}
+              onChange={this.onWrite11.bind(this)}
+              placeholder="Allergies"
+              style={input}
+            />
+          </h3>
+          <h3 style={number2}>
+            Description:
+            <input
+              value={this.state.description}
+              onChange={this.onWrite12.bind(this)}
+              placeholder="Description"
+              style={input}
+            />
           </h3>
         </div3>
-        <button onClick = {this.sentData.bind(this)} style = {button}>Submit</button>
-        <button onClick = {this.home.bind(this)} style = {button}>Back to Home</button>
+        <button onClick={this.sentData.bind(this)} style={button}>
+          Submit
+        </button>
+        <button onClick={this.home.bind(this)} style={button}>
+          Back to Home
+        </button>
       </div>
-    )
+    );
   }
 }
 
-//export this component to can use
+//export this component to can use it
 export default NewPatient;
