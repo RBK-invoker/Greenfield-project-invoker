@@ -1,81 +1,81 @@
-import React from "react";
-import $ from "jquery";
+import React from 'react';
+import $ from 'jquery';
 //styling part
 const header = {
-  color: "black",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "40px",
-  fontFamily: "Lobster",
-  marginTop: "2px",
-  marginBottom: "-15px"
+  color: 'black',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '40px',
+  fontFamily: 'Lobster',
+  marginTop: '2px',
+  marginBottom: '-15px'
 };
 
 const header2 = {
-  color: "#ea3212",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "25px",
-  fontFamily: "Lobster",
-  marginBottom: "-10px",
-  marginTop: "5px"
+  color: '#ea3212',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '25px',
+  fontFamily: 'Lobster',
+  marginBottom: '-10px',
+  marginTop: '5px'
 };
 
 const fName = {
-  color: "#7a00a3",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "20px",
-  marginBottom: "-10px"
+  color: '#7a00a3',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '20px',
+  marginBottom: '-10px'
 };
 
 const lName = {
-  color: "#7a00a3",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "20px",
-  marginBottom: "-10px"
+  color: '#7a00a3',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '20px',
+  marginBottom: '-10px'
 };
 
 const user = {
-  color: "#1B5494",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "20px",
-  marginBottom: "-10px"
+  color: '#1B5494',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '20px',
+  marginBottom: '-10px'
 };
 
 const password = {
-  color: "#bb280e",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "20px",
-  marginBottom: "-10px"
+  color: '#bb280e',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '20px',
+  marginBottom: '-10px'
 };
 
 const input = {
-  padding: "10px 10px 10px 10px",
-  display: "block",
-  marginRight: "auto",
-  marginLeft: "auto",
-  color: "black",
-  fontSize: "15px",
-  border: "2px solid black",
-  borderRadius: "15px"
+  padding: '10px 10px 10px 10px',
+  display: 'block',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  color: 'black',
+  fontSize: '15px',
+  border: '2px solid black',
+  borderRadius: '15px'
 };
 
 const button = {
-  padding: "5px",
-  display: "block",
-  marginRight: "auto",
-  marginLeft: "auto",
-  backgroundColor: "#123456",
-  color: "white",
-  border: "2px solid #123456",
-  marginTop: "20px",
-  fontSize: "20px",
-  borderRadius: "10px",
-  fontFamily: "Lobster"
+  padding: '5px',
+  display: 'block',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  backgroundColor: '#123456',
+  color: 'white',
+  border: '2px solid #123456',
+  marginTop: '20px',
+  fontSize: '20px',
+  borderRadius: '10px',
+  fontFamily: 'Lobster'
 };
 
 class SignUp extends React.Component {
@@ -83,10 +83,10 @@ class SignUp extends React.Component {
     super();
     //all the data save before sent in state
     this.state = {
-      firstName: "",
-      lastName: "",
-      userName: "",
-      password: ""
+      firstName: '',
+      lastName: '',
+      userName: '',
+      password: ''
     };
   }
 
@@ -117,8 +117,8 @@ class SignUp extends React.Component {
   saveUser() {
     const that = this;
     $.ajax({
-      type: "POST",
-      url: "/signup",
+      type: 'POST',
+      url: '/signup',
       data: {
         firstName: `${this.state.firstName}`,
         lastName: `${this.state.lastName}`,
@@ -127,13 +127,13 @@ class SignUp extends React.Component {
       },
 
       success: function(res) {
-        if (res[0] === "W") {
+        if (res[0] === 'W') {
           alert(res);
           console.log(res[0]);
-          window.location.href = window.location.origin + "/";
+          window.location.href = window.location.origin + '/';
         } else {
           alert(res);
-          window.location.href = window.location.origin + "/login";
+          window.location.href = window.location.origin + '/login';
         }
       },
       error: function(res) {
@@ -143,11 +143,11 @@ class SignUp extends React.Component {
   }
   //try router
   login() {
-    window.location.href = window.location.origin + "/login";
+    window.location.href = window.location.origin + '/login';
   }
   //for home button
   home() {
-    window.location.href = window.location.origin + "/";
+    window.location.href = window.location.origin + '/';
   }
 
   render() {
