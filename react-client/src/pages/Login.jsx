@@ -1,64 +1,64 @@
-import React from "react";
-import $ from "jquery";
+import React from 'react';
+import $ from 'jquery';
 
 //styling part
 const header = {
-  color: "black",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "40px",
-  fontFamily: "Lobster"
+  color: 'black',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '40px',
+  fontFamily: 'Lobster'
 };
 
 const header2 = {
-  color: "#ea3212",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "25px",
-  fontFamily: "Lobster",
-  marginBottom: "-10px",
-  marginTop: "5px"
+  color: '#ea3212',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '25px',
+  fontFamily: 'Lobster',
+  marginBottom: '-10px',
+  marginTop: '5px'
 };
 
 const user = {
-  color: "#1B5494",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "20px",
-  marginBottom: "-10px"
+  color: '#1B5494',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '20px',
+  marginBottom: '-10px'
 };
 
 const password = {
-  color: "#bb280e",
-  fontWeight: "bold",
-  textAlign: "center",
-  fontSize: "20px",
-  marginBottom: "-10px"
+  color: '#bb280e',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '20px',
+  marginBottom: '-10px'
 };
 
 const input = {
-  padding: "10px 10px 10px 10px",
-  display: "block",
-  marginRight: "auto",
-  marginLeft: "auto",
-  color: "black",
-  fontSize: "15px",
-  border: "2px solid black",
-  borderRadius: "15px"
+  padding: '10px 10px 10px 10px',
+  display: 'block',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  color: 'black',
+  fontSize: '15px',
+  border: '2px solid black',
+  borderRadius: '15px'
 };
 
 const button = {
-  padding: "5px",
-  display: "block",
-  marginRight: "auto",
-  marginLeft: "auto",
-  backgroundColor: "#123456",
-  color: "white",
-  border: "2px solid #123456",
-  borderRadius: "10px",
-  marginTop: "20px",
-  fontSize: "20px",
-  fontFamily: "Lobster"
+  padding: '5px',
+  display: 'block',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  backgroundColor: '#123456',
+  color: 'white',
+  border: '2px solid #123456',
+  borderRadius: '10px',
+  marginTop: '20px',
+  fontSize: '20px',
+  fontFamily: 'Lobster'
 };
 
 class Login extends React.Component {
@@ -66,8 +66,8 @@ class Login extends React.Component {
     super();
     //all the data save before sent in state
     this.state = {
-      userName: "",
-      password: "",
+      userName: '',
+      password: '',
       loggedIn: false
     };
   }
@@ -93,24 +93,24 @@ class Login extends React.Component {
   login() {
     const that = this;
     $.ajax({
-      type: "POST",
-      url: "/login",
+      type: 'POST',
+      url: '/login',
       data: {
         userName: `${this.state.userName}`,
         password: `${this.state.password}`
       },
 
       success: function(res) {
-        if (res[res.length - 1] === "e") {
+        if (res[res.length - 1] === 'e') {
           alert(res);
-          window.location.href = window.location.origin + "/signup";
-        } else if (res[0] === "W") {
+          window.location.href = window.location.origin + '/signup';
+        } else if (res[0] === 'W') {
           alert(res);
           that.setState({ loggedIn: true });
-          window.location.href = window.location.origin + "/";
+          window.location.href = window.location.origin + '/';
         } else {
           alert(res);
-          window.location.href = window.location.origin + "/login";
+          window.location.href = window.location.origin + '/login';
         }
       },
       error: function() {
@@ -120,11 +120,11 @@ class Login extends React.Component {
   }
 
   home() {
-    window.location.href = window.location.origin + "/";
+    window.location.href = window.location.origin + '/';
   }
 
   signup() {
-    window.location.href = window.location.origin + "/signup";
+    window.location.href = window.location.origin + '/signup';
   }
 
   render() {
