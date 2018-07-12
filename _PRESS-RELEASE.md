@@ -55,4 +55,4 @@ Medical records facilitates saving and organizing informations for doctors in on
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
 
-if you are interested to see the app head over to our website at: https://medical-record-app.herokuapp.com/
+if you are interested to see the app head over to our website at: https://medical-records-app.herokuapp.com/
